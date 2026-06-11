@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">  <!-- Importando o thymeleaf -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">  <!-- referenciando um arquivo -->
 <head>
-    <meta charset="UTF-8">
     <title>Lista de filmes</title>
 </head>
 <body>
-<h1>Lista de filme</h1>
+  <div layout:fragment="conteudo">
+    <h1>Lista de filme</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>NOME</th>
-      <th>DURACAO</th>
-      <th>ANO DE LANCAMENTO</th>
-      <th>GÊNERO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each="filme : ${lista}"> <!-- fazendo um loop com o thymeleaf para mostrar todos os itens do array lista -->
-      <td th:text="${filme.nome}"></td>
-      <td th:text="${filme.duracaoEmMinutos}"></td>
-      <td th:text="${filme.anoLancamento}"></td>
-      <td th:text="${filme.genero}"></td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>NOME</th>
+          <th>DURACAO</th>
+          <th>ANO DE LANCAMENTO</th>
+          <th>GÊNERO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="filme : ${lista}"> <!-- fazendo um loop com o thymeleaf para mostrar todos os itens do array lista -->
+          <td th:text="${filme.nome}"></td>
+          <td th:text="${filme.duracaoEmMinutos}"></td>
+          <td th:text="${filme.anoLancamento}"></td>
+          <td th:text="${filme.genero}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>

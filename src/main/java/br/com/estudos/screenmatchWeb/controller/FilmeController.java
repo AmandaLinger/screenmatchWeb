@@ -29,11 +29,10 @@ public class FilmeController {
     }
 
     @PostMapping
-    public String cadastraFilme(DadosCadastroFilme dados, Model model){
+    public String cadastraFilme(DadosCadastroFilme dados){
         var filme = new Filme(dados);
         filmes.add(filme);
 
-        model.addAttribute("lista", filmes);
-        return "filmes/listagem";
+        return "redirect:/filmes";
     }
 }
