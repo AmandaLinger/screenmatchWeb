@@ -50,4 +50,6 @@ public class Filme {
         this.anoLancamento = dados.ano();
         this.genero = dados.genero();
     }
+
+    public Filme(){}
 }
