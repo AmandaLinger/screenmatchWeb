@@ -1,15 +1,14 @@
 package br.com.estudos.screenmatchWeb.controller;
 
+import br.com.estudos.screenmatchWeb.domain.filme.DadosAtualizacaoFilme;
 import br.com.estudos.screenmatchWeb.domain.filme.DadosCadastroFilme;
 import br.com.estudos.screenmatchWeb.domain.filme.Filme;
 import br.com.estudos.screenmatchWeb.domain.filme.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +39,15 @@ public class FilmeController {
     public String cadastraFilme(DadosCadastroFilme dados){
         var filme = new Filme(dados);
         repository.save(filme);
+
+        return "redirect:/filmes";
+    }
+
+    @PutMapping
+    @Transactional
+    public String atualizaFilme(DadosAtualizacaoFilme dados){
+        var filme = repository.getReferenceById(dados.id());
+        filme.atualizaDados(dados);
 
         return "redirect:/filmes";
     }

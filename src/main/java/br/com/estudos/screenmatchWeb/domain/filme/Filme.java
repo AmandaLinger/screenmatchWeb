@@ -52,4 +52,11 @@ public class Filme {
     }
 
     public Filme(){}
+
+    public void atualizaDados(DadosAtualizacaoFilme dados) {
+        this.nome = dados.nome();
+        this.duracaoEmMinutos = dados.duracao();
+        this.anoLancamento = dados.ano();
+        this.genero = dados.genero();
+    }
 }
