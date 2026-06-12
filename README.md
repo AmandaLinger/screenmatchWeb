@@ -1,6 +1,6 @@
 <h1>ScreenMatch na web</h1>
 
-<h2>Aplicação Web desenvolvida para estudo de Java na Web</h2>
+<h2>Aplicação desenvolvida para estudo de Java na Web</h2>
 
 <h3>Linguagem</h3>
 👉Java
